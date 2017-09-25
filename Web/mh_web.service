@@ -1,16 +1,14 @@
 [Unit]
-Description=MH Runner
+Description=MH Web
 After=network.target
 
 [Service]
 Type=simple
-ExecStart=/opt/Runner/build/simple_master 64
-WorkingDirectory=/opt/Runner/build
-ExecStartPre=/opt/Runner/prepare.sh
+ExecStart=/usr/bin/node /opt/Web/dist/index.js
+WorkingDirectory=/opt/Web
 Restart=always
-User=runner
-Group=runner
-PermissionsStartOnly=true
+User=web
+Group=web
 
 [Install]
 WantedBy=multi-user.target
