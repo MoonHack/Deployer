@@ -4,7 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/home/runner/Runner/simple_master 64
+ExecStart=/home/runner/Runner/build/simple_master 64
+WorkingDirectory=/home/runner/Runner/build
 ExecStartPre=/home/runner/Runner/prepare.sh
 Restart=always
 User=runner
