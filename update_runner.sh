@@ -9,4 +9,3 @@ run 'cd /home/runner/Runner/build && cmake -DCMAKE_BUILD_TYPE=Release .. && make
 scp 'Runner/mh_runner.service' "$LOGIN:/etc/systemd/system/mh_runner.service"
 run 'systemctl daemon-reload && systemctl enable mh_runner && systemctl restart mh_runner'
 
-finish
