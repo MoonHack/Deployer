@@ -18,7 +18,7 @@ setup() {
 	run 'ssh-keyscan gitlab.com 2>&1 | sort -u - ~/.ssh/known_hosts > ~/.ssh/tmp_hosts'
 	run 'mv ~/.ssh/tmp_hosts ~/.ssh/known_hosts'
 
-	run 'apt -y install sudo htop screen tcpdump git'
+	run 'apt -y install sudo htop screen tcpdump git curl'
 	run "hostnamectl set-hostname $HOSTNAME"
 	run 'timedatectl set-timezone UTC'
 }
