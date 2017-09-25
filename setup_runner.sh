@@ -13,11 +13,10 @@ run 'luarocks install lua-mongo'
 run 'luarocks install uuid'
 
 run 'useradd runner || true'
-run 'mkdir -p /home/runner && chown runner:runner /home/runner'
-run 'cd /home/runner/Runner && git pull' || run 'cd /home/runner && git clone git@gitlab.com:MoonHack/Runner'
-scp 'Runner/config.lua' "$LOGIN:/home/runner/Runner/src/lua/config.lua"
-scp 'Runner/config.h' "$LOGIN:/home/runner/Runner/src/c/config.h"
-run 'cd /home/runner/Runner/build && cmake -DCMAKE_BUILD_TYPE=Release .. && make'
+run 'cd /opt/Runner && git pull' || run 'cd /opt && git clone git@gitlab.com:MoonHack/Runner'
+scp 'Runner/config.lua' "$LOGIN:/opt/Runner/src/lua/config.lua"
+scp 'Runner/config.h' "$LOGIN:/opt/Runner/src/c/config.h"
+run 'cd /opt/Runner/build && cmake -DCMAKE_BUILD_TYPE=Release .. && make'
 scp 'Runner/mh_runner.service' "$LOGIN:/etc/systemd/system/mh_runner.service"
 run 'systemctl daemon-reload && systemctl enable mh_runner && systemctl restart mh_runner'
 
