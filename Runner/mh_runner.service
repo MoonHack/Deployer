@@ -1,0 +1,15 @@
+[Unit]
+Description=MH Runner
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/runner/Runner/simple_master 64
+ExecStartPre=/home/runner/Runner/prepare.sh
+Restart=always
+User=runner
+Group=runner
+PermissionsStartOnly=true
+
+[Install]
+WantedBy=multi-user.target
