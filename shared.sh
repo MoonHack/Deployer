@@ -4,7 +4,6 @@ set -e
 
 IP="$1"
 LOGIN="root@$IP"
-HOSTNAME="$_CAT$2.moonhack.net"
 run() {
 	ssh -oForwardAgent=yes "$LOGIN" "$@"
 }
@@ -14,6 +13,8 @@ finish_setup() {
 ssh-copy-id "root@$IP"
 
 setup() {
+	HOSTNAME="$_CAT$2.moonhack.net"
+
 	run 'touch ~/.ssh/known_hosts'
 	run 'ssh-keyscan gitlab.com 2>&1 | sort -u - ~/.ssh/known_hosts > ~/.ssh/tmp_hosts'
 	run 'mv ~/.ssh/tmp_hosts ~/.ssh/known_hosts'
@@ -21,6 +22,8 @@ setup() {
 	run 'apt -y install sudo htop screen tcpdump git curl'
 	run "hostnamectl set-hostname $HOSTNAME"
 	run 'timedatectl set-timezone UTC'
+
+	scp eth1intf "$LOGIN:/etc/network/interfaces.d/eth1intf"
 }
 
 run 'apt -y update && apt -y upgrade'

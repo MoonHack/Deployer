@@ -8,7 +8,7 @@ run 'apt -y install libssl-dev libluajit-5.1-dev luajit luarocks build-essential
 
 run 'cd /usr/src && wget https://github.com/mongodb/mongo-c-driver/releases/download/1.8.0/mongo-c-driver-1.8.0.tar.gz -O mongo-c-driver-1.8.0.tar.gz && tar xzf mongo-c-driver-1.8.0.tar.gz && cd mongo-c-driver-1.8.0 && ./configure --disable-automatic-init-and-cleanup --disable-shm-counters && make && make install'
 
-run 'luarocks install lua-cjson'
+run 'luarocks install dkjson'
 run 'luarocks install lua-mongo'
 run 'luarocks install uuid'
 
