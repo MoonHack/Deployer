@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/opt/Runner/build/simple_master 1
+ExecStart=/opt/Runner/build/simple_master 64
 WorkingDirectory=/opt/Runner/build
 ExecStartPre=/opt/Runner/prepare.sh
 Restart=always
