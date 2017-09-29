@@ -11,7 +11,6 @@ run 'cd /usr/src && wget https://github.com/mongodb/mongo-c-driver/releases/down
 run 'luarocks install lpeg'
 run 'luarocks install dkjson'
 run 'luarocks install lua-mongo'
-run 'luarocks install uuid'
 
 run 'useradd runner || true'
 run 'cd /opt/Runner && git pull' || run 'cd /opt && git clone git@gitlab.com:MoonHack/Runner'
