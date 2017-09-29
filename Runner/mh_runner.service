@@ -15,7 +15,7 @@ PermissionsStartOnly=true
 Environment="LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/lib"
 InaccessibleDirectories=/etc /dev /tmp /root /home /opt/Runner/src /etc /boot /media /mnt /run /var /srv
 ReadOnlyDirectories=/opt /usr /bin /sbin /lib /lib64
-ReadWriteDirectories=/sys/fs/cgroup/memory/runner /proc
+ReadWriteDirectories=/sys/fs/cgroup/memory/runner /proc/self
 
 [Install]
 WantedBy=multi-user.target
