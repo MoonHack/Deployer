@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/opt/Runner/build/simple_master 64
+ExecStart=/opt/Runner/build/simple_master 16
 WorkingDirectory=/opt/Runner/build
 ExecStartPre=/opt/Runner/prepare.sh
 Restart=always
@@ -12,10 +12,10 @@ User=runner
 Group=runner
 PermissionsStartOnly=true
 
-Environment="LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/lib"
-InaccessibleDirectories=/etc /dev /tmp /root /home /opt/Runner/src /etc /boot /media /mnt /run /var /srv
-ReadOnlyDirectories=/
-ReadWriteDirectories=/sys/fs/cgroup/memory/runner /proc/self
+#Environment="LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/lib"
+#InaccessibleDirectories=/dev /tmp /root /home /opt/Runner/src /boot /media /mnt /run /var /srv /sys/block /sys/bus /sys/class /sys/dev /sys/devices /sys/firmware /sys/hypervisor /sys/kernel /sys/module /sys/power /sys/fs/bpf /sys/fs/ecryptfs /sys/fs/ext4 /sys/fs/fuse /sys/fs/pstore
+#ReadOnlyDirectories=/
+#ReadWriteDirectories=/sys/fs/cgroup/memory/runner /proc/self
 
 [Install]
 WantedBy=multi-user.target
