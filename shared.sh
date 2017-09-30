@@ -21,7 +21,7 @@ setup() {
 
 	run 'echo "@reboot /sbin/iptables-restore < /root/iptables.rules" > /ct && crontab /ct && rm -f /ct'
 
-	run 'apt -y install sudo htop screen tcpdump git curl iptables'
+	run 'apt -y install sudo htop screen tcpdump git curl iptables ntp haveged'
 	run "hostnamectl set-hostname $HOSTNAME"
 	run 'timedatectl set-timezone UTC'
 
