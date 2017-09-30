@@ -19,6 +19,8 @@ setup() {
 	run 'ssh-keyscan gitlab.com 2>&1 | sort -u - ~/.ssh/known_hosts > ~/.ssh/tmp_hosts'
 	run 'mv ~/.ssh/tmp_hosts ~/.ssh/known_hosts'
 
+	run 'echo "@reboot /sbin/iptables-restore < /root/iptables.rules" > /ct && crontab /ct && rm -f /ct'
+
 	run 'apt -y install sudo htop screen tcpdump git curl iptables'
 	run "hostnamectl set-hostname $HOSTNAME"
 	run 'timedatectl set-timezone UTC'
