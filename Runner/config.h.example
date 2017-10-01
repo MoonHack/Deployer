@@ -7,6 +7,6 @@
 #define RMQ_PASS "guest"
 
 #define TASK_HARD_TIMEOUT 7
-#define TASK_MEMORY_LIMIT "8M"
-#define TASK_MEMORY_LIMIT_HIGH "1G"
+#define TASK_MEMORY_LIMIT (32 * 1024 * 1024)
+#define TASK_MEMORY_LIMIT_HIGH "64M"
 #endif
