@@ -12,6 +12,7 @@ User=runner
 Group=runner
 PermissionsStartOnly=true
 
+Environment="CGROUP_MEM_REQUIRED=1"
 #Environment="LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/lib"
 #InaccessibleDirectories=/dev /tmp /root /home /opt/Runner/src /boot /media /mnt /run /var /srv /sys/block /sys/bus /sys/class /sys/dev /sys/devices /sys/firmware /sys/hypervisor /sys/kernel /sys/module /sys/power /sys/fs/bpf /sys/fs/ecryptfs /sys/fs/ext4 /sys/fs/fuse /sys/fs/pstore
 #ReadOnlyDirectories=/

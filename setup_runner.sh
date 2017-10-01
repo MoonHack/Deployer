@@ -4,9 +4,11 @@ source shared.sh
 
 setup
 
-run 'apt -y install libssl-dev libluajit-5.1-dev luajit luarocks build-essential cmake librabbitmq-dev uuid-dev clang llvm'
+run 'apt -y install libssl-dev luarocks build-essential cmake librabbitmq-dev uuid-dev clang llvm'
 
 run 'cd /usr/src && wget https://github.com/mongodb/mongo-c-driver/releases/download/1.8.0/mongo-c-driver-1.8.0.tar.gz -O mongo-c-driver-1.8.0.tar.gz && tar xzf mongo-c-driver-1.8.0.tar.gz && cd mongo-c-driver-1.8.0 && ./configure --disable-automatic-init-and-cleanup --disable-shm-counters && make && make install'
+
+run 'cd /usr/src/LuaJIT && git pull' || run 'cd /usr/src && git clone git@github.com:Doridian/LuaJIT && cd /usr/src/LuaJIT && git checkout moonhack && make && make install'
 
 run 'luarocks install lpeg'
 run 'luarocks install dkjson'
